@@ -14,6 +14,10 @@ typedef struct {
     bool is_computer;
 } Player;
 
+extern unsigned int _Total_Player;
+extern int _Current_Turn; 
+extern Player _Players[4];
+
 /*  
     Deskripsi       : 
         Prosedur ini berfungsi untuk mengisi setiap elemen dalam Array of Player dengan input pengguna

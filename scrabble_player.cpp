@@ -1,9 +1,6 @@
 #include "scrabble_player.h" 
 #include <cstdio>
 
-int _Total_Player = 0;
-int _Current_Turn = 1;
-
 void initPlayers(Player *players, unsigned int numPlayers){
     _Total_Player = numPlayers;
     int computerCount = 0;
