@@ -7,8 +7,8 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-extern bool stop_thread;
-extern int timer;
+extern bool _Stop_Thread;
+extern int _Timer;
 void initTimer();
 void* countdown_thread(void* arg);
 void startCountdown();

@@ -2,7 +2,7 @@
 #include "scrabble_utilities.h"
 #include <ctype.h>
 
-char board[15][15];
+char _Board[15][15];
 
 /* Mereset papan Scrabble (mengosongkan seluruh isinya)
 
@@ -14,12 +14,12 @@ void initBoard(){
 	while (i<15){
 		j = 0;
 		while (j<15){
-			board[i][j] = ' ';
+			_Board[i][j] = ' ';
 			j++;
 		}
 		i++;
 	}
-	board[7][7]='*';
+	_Board[7][7]='*';
 }
 
 /* Mencetak papan Scrabble sesuai dengan kondisi saat ini
@@ -49,7 +49,7 @@ void printBoard(){
 		
 		j = 0;
 		while (j<15){
-			printf("| %c ", board[k][j]);
+			printf("| %c ", _Board[k][j]);
 			j++;
 		}
 		printf("|\n");
@@ -89,13 +89,13 @@ void placeTiles(char *word, int row, int col, char direction){
 	if (direction=='H'){
 		i = 0;
 		while (i<strlen(word)){
-			board[row][col+i] = word[i];
+			_Board[row][col+i] = word[i];
 			i++;
 		}
 	} else if (direction=='V'){
 		i = 0;
 		while (i<strlen(word)){
-			board[row+i][col] = word[i];
+			_Board[row+i][col] = word[i];
 			i++;
 		}
 	}
@@ -110,8 +110,8 @@ void extractLetter(char *letterOnBoard, int row, int col, int direction, char *w
 	int j = 0;
 	if (direction == 'H'){
 		while (checkBound(row, col) && j < wordLength){
-			if (board[row][col]!=' ' && board[row][col]!='*'){
-				letterOnBoard[j] = board[row][col];
+			if (_Board[row][col]!=' ' && _Board[row][col]!='*'){
+				letterOnBoard[j] = _Board[row][col];
 				j++;
 			}
 			col++;	
@@ -119,8 +119,8 @@ void extractLetter(char *letterOnBoard, int row, int col, int direction, char *w
 		letterOnBoard[j] = '\0';
 	} else if (direction == 'V'){
 		while (checkBound(row, col) && j < wordLength){
-			if (board[row][col]!=' ' && board[row][col]!='*'){
-				letterOnBoard[j] = board[row][col];
+			if (_Board[row][col]!=' ' && _Board[row][col]!='*'){
+				letterOnBoard[j] = _Board[row][col];
 				j++;
 			}
 			row++;

@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-extern char board[15][15];
+extern char _Board[15][15];
 void initBoard();
 void printBoard();
 void getInput(char *word, int *row, int *column, char *direction);

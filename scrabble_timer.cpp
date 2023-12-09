@@ -3,27 +3,27 @@
 
 #include "scrabble_timer.h"
 
-bool stop_thread;
-int timer;
+bool _Stop_Thread;
+int _Timer;
 
 void initTimer(){
-    timer = 60;
-    stop_thread = false;
+    _Timer = 60;
+    _Stop_Thread = false;
 }
 
 void* countdown_thread(void* arg) {
-  printf("Sisa waktu: %d detik\n", timer);
+  printf("Sisa waktu: %d detik\n", _Timer);
   printf("\033[s");
-  while(timer > 0) {
+  while(_Timer > 0) {
   	printf("\033[u"); 
     sleep(1);
-    timer--;
+    _Timer--;
     printf("\033[s");
-    if (stop_thread){
+    if (_Stop_Thread){
     	break;
 	}
     printf("\033[1A\r\033[K");
-    printf("Sisa waktu: %d detik\n", timer);
+    printf("Sisa waktu: %d detik\n", _Timer);
   }
   pthread_exit(NULL); 
 }
@@ -34,6 +34,6 @@ void startCountdown(){
 }
 
 void endCountdown(){
-	stop_thread = true;
+	_Stop_Thread = true;
 	sleep(1);
 }
