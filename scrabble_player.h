@@ -23,15 +23,14 @@ extern Player _Players[4];
         Prosedur ini berfungsi untuk mengisi setiap elemen dalam Array of Player dengan input pengguna
 
     Parameter       :
-        1. players      -> Player*
-        2. numPlayers   -> Unsigned Int 
+        1. numPlayers   -> Unsigned Int 
 
     F.S             :
         Parameter players terisi oleh user
 
     Dibuat oleh     : Yobel El'Roy Doloksaribu 
 */
-void initPlayers(Player *players, unsigned int numPlayers); 
+void initPlayers(unsigned int numPlayers); 
 
 /*  
     Deskripsi       : 
@@ -46,6 +45,6 @@ void initPlayers(Player *players, unsigned int numPlayers);
 
     Dibuat oleh     : Yobel El'Roy Doloksaribu 
 */
-void printPlayers(Player *players, unsigned int numPlayers);
+void printPlayers(unsigned int numPlayers);
 
 #endif 

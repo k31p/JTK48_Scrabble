@@ -1,7 +1,11 @@
 #include "scrabble_player.h" 
 #include <cstdio>
 
-void initPlayers(Player *players, unsigned int numPlayers){
+unsigned int _Total_Player;
+int _Current_Turn; 
+Player _Players[4];
+
+void initPlayers(unsigned int numPlayers){
     _Total_Player = numPlayers;
     int computerCount = 0;
     for(int i = 0; i < numPlayers; i++){
@@ -10,36 +14,36 @@ void initPlayers(Player *players, unsigned int numPlayers){
         printf("Apakah player adalah komputer (y/n)? ");
         scanf(" %c", &pilihan); fflush(stdin);
 
-        players[i].skor = 0;
+        _Players[i].skor = 0;
         if(pilihan == 'y' || pilihan == 'Y'){
-            players[i].is_computer = true;
+            _Players[i].is_computer = true;
             computerCount++;
         } else if(pilihan == 'n' || pilihan == 'N'){
-            players[i].is_computer = false;
+            _Players[i].is_computer = false;
         } else {
             fprintf(stderr, "Input invalid!");
             return;
         }
 
-        if(players[i].is_computer){
-            snprintf(players[i].namaPlayer, MAX_PLAYERNAME_LENGTH, "Computer %d", computerCount);
+        if(_Players[i].is_computer){
+            snprintf(_Players[i].namaPlayer, MAX_PLAYERNAME_LENGTH, "Computer %d", computerCount);
             printf("\n");
         } else {
             printf("Masukkan nama player: ");
             getchar();
-            fgets(players[i].namaPlayer, MAX_PLAYERNAME_LENGTH, stdin); fflush(stdin);
-            removeNewlines(players[i].namaPlayer);
+            fgets(_Players[i].namaPlayer, MAX_PLAYERNAME_LENGTH, stdin); fflush(stdin);
+            removeNewlines(_Players[i].namaPlayer);
             printf("\n");
         }
 
     }
 }
 
-void printPlayers(Player *players, unsigned int numPlayers){
+void printPlayers(unsigned int numPlayers){
     for(int i = 0; i < numPlayers; i++){
         printf("PLAYER %d\n", i + 1);
-        printf("Nama    : %s\n", players[i].namaPlayer);
-        printf("Skor    : %d\n", players[i].skor);
+        printf("Nama    : %s\n", _Players[i].namaPlayer);
+        printf("Skor    : %d\n", _Players[i].skor);
         printf("\n");
     }
 }
