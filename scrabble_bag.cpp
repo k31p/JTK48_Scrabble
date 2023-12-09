@@ -1,6 +1,6 @@
 #include "scrabble_bag.h"
 
-char mainBag[98] = {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', // 12 A
+char _Main_Bag[98] = {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', // 12 A
                     'B', 'B', 'B', // 3 B
                     'C', 'C', // 2 C
                     'D', 'D', 'D', // 3 D
@@ -28,7 +28,7 @@ char mainBag[98] = {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 
                     'Z', // 1 Z
                     };
 
-int mainBagSize = 98;
+int _Main_Bag_Size = 98;
 
 /*
 
@@ -37,8 +37,8 @@ void initPlayerBag(char playerBag[7]){
 	int index, i = 0;
 	while (i < 7){
 		srand(time(NULL));
-		index = rand() % mainBagSize;
-		playerBag[i] = mainBag[index];
+		index = rand() % _Main_Bag_Size;
+		playerBag[i] = _Main_Bag[index];
 		setBag(index);
 		i++;
 	}
@@ -62,9 +62,9 @@ void printBag(char bag[7]){
 
 */
 void setBag(int index){
-	mainBag[index] = mainBag[mainBagSize-1];
-	mainBag[mainBagSize-1] = '\0';
-	mainBagSize--;
+	_Main_Bag[index] = _Main_Bag[_Main_Bag_Size-1];
+	_Main_Bag[_Main_Bag_Size-1] = '\0';
+	_Main_Bag_Size--;
 }
 
 /*
@@ -114,8 +114,8 @@ void fillPlayerBag(char playerBag[7]){
 	
 	while (bagSize < 7){
 		srand(time(NULL));
-		index = rand() % mainBagSize;
-		playerBag[bagSize] = mainBag[index];
+		index = rand() % _Main_Bag_Size;
+		playerBag[bagSize] = _Main_Bag[index];
 		setBag(index);
 		bagSize++;
 	}
@@ -143,9 +143,9 @@ void swapLetter(char bag[7]){
 		index[i]--;
 		temp = bag[index[i]];
 		srand(time(NULL)*i*399397132);
-		ind = rand() % mainBagSize;
-		bag[index[i]] = mainBag[ind];
-		mainBag[ind] = temp;
+		ind = rand() % _Main_Bag_Size;
+		bag[index[i]] = _Main_Bag[ind];
+		_Main_Bag[ind] = temp;
 		i++;
 	}
 }
