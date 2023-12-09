@@ -54,3 +54,4 @@ dkms.conf
 # Build Files
 build/*
 .vscode/
+savedata.dat
