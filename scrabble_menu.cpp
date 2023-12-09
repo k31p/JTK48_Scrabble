@@ -69,7 +69,7 @@ void switchMenu(char menus[5][50], int menuPos){
             globalMenuChoice = 1;
         }
         createMenus(menus, menuPos);
-    } else if(input == '\n'){
+    } else if(input == '\n' || input == '\r'){
         selectMenu();
     }
 }
