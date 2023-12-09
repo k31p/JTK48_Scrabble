@@ -32,3 +32,8 @@ void startCountdown(){
     pthread_t timer_thread;
     pthread_create(&timer_thread, NULL, &countdown_thread, NULL);
 }
+
+void endCountdown(){
+	stop_thread = true;
+	sleep(1);
+}

@@ -12,5 +12,6 @@ extern int timer;
 void initTimer();
 void* countdown_thread(void* arg);
 void startCountdown();
+void endCountdown();
 
 #endif
