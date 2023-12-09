@@ -37,33 +37,6 @@ void createMenus(char menus[5][50], int startPos){
     }
 }
 
-void switchMenu(char menus[5][50], int menuPos){
-    switch (tc_getch()) {
-        case 'A':
-            // printf("Panah atas");
-            globalMenuChoice--;
-            if(globalMenuChoice < 1){
-                globalMenuChoice = 5;
-            }
-            createMenus(menus, menuPos);
-            break;
-        case 'B':
-            // printf("Panah bawah");
-            globalMenuChoice++;
-            if(globalMenuChoice > 5){
-                globalMenuChoice = 1;
-            }
-            createMenus(menus, menuPos);
-            break;
-        case 'C':
-            // printf("Panah kanan");
-            break;
-        case 'D':
-            // printf("Panah kiri");
-            break;
-    }
-}
-
 void selectMenu(){
     switch(globalMenuChoice){
         case 1:
@@ -79,6 +52,25 @@ void selectMenu(){
             printf("Selamat tinggal...");
             exit(0);
             break;
+    }
+}
+
+void switchMenu(char menus[5][50], int menuPos){
+    char input = tc_getch();
+    if(input == 'w' || input == 'W'){
+        globalMenuChoice--;
+        if(globalMenuChoice < 1){
+            globalMenuChoice = 5;
+        }
+        createMenus(menus, menuPos);
+    } else if(input == 's' || input == 'S'){
+        globalMenuChoice++;
+        if(globalMenuChoice > 5){
+            globalMenuChoice = 1;
+        }
+        createMenus(menus, menuPos);
+    } else if(input == '\n'){
+        selectMenu();
     }
 }
 
@@ -101,12 +93,6 @@ void displayMainMenu() {
 
     tc_echo_off();
     for(;;){
-        char input = tc_getch();
-        if(input == '\033'){ // escape
-            tc_getch(); // [
-            switchMenu(menus, menuPos);
-        } else if(input == '\r') { // enter
-            selectMenu();
-        }
+        switchMenu(menus, menuPos);
     }
 }
