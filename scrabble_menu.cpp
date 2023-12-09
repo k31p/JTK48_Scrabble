@@ -27,7 +27,8 @@ void createMenus(char menus[5][50], int startPos){
     for(int i = 0; i < 5; i++){
         char *text;
         if(i +1 == globalMenuChoice){
-            asprintf(&text, "--> %s", menus[i]);
+            text = (char*) malloc(sizeof(char) * 50);
+            sprintf(text, "--> %s", menus[i]);
             centerPos(text);
             free(text);
         } else {
