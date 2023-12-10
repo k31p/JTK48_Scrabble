@@ -7,6 +7,7 @@
 #include <string.h>
 #include "scrabble_board.h"
 
+extern int _Main_Bag_Size;
 extern char _Main_Bag[98];
 void initPlayerBag(char playerBag[7]);
 void printBag(char bag[7]);
