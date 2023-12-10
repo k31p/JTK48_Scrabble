@@ -1,5 +1,5 @@
-#ifndef BOARD_H
-#define BOARD_H
+#ifndef SCRABBLE_BOARD_H
+#define SCRABBLE_BOARD_H
 
 #include <stdio.h>
 #include <string.h>

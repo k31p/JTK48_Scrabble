@@ -1,5 +1,5 @@
-#ifndef scrabble_utilities_H
-#define scrabble_utilities_H
+#ifndef SCRABBLE_UTILITIES_H
+#define SCRABBLE_UTILITIES_H
 
 #include <stdio.h>
 #include <stdlib.h>

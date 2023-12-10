@@ -1,8 +1,8 @@
 //
 //
 
-#ifndef COM_OPPONENT_H
-#define COM_OPPONENT_H
+#ifndef SCRABBLE_COM_OPPONENT_H
+#define SCRABBLE_COM_OPPONENT_H
 
 #include <string.h>
 #include <stdbool.h>
