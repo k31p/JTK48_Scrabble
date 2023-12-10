@@ -3,7 +3,13 @@
 /*
 
 */
-int setDifficulty(int input){
+int setDifficulty(){
+	int input;
+	printf("Select Difficulty of Computer:\n");
+	printf("1. Easy\n");
+	printf("2. Normal\n");
+	printf("3. Hard\n");
+	scanf(" %d", &input);
 	if (input==1){
 		return 3;
 	} else if (input==2){
@@ -85,11 +91,11 @@ void reposition(char *word, int *row, int *col, char direction){
 	}
 }
 
-void goThinkComputer(char bag[7], char *word, int row, int col, char direction, int difficulty){
+void goThinkComputer(char bag[7], char *word, int *row, int *col, char direction, int difficulty){
 	bool isFound = false;
 	char *letterOnBoard = (char *) malloc(15*sizeof(char));
 	char *bags = (char *) malloc(15*sizeof(char));
-	extractLetter(letterOnBoard, row, col, direction, word);
+	extractLetter(letterOnBoard, *row, *col, direction, word);
 	int wordOnBoardLength = strlen(letterOnBoard);
 	letterOnBoard [ wordOnBoardLength ] = '\0';
 	strcpy(bags, letterOnBoard);
@@ -99,7 +105,44 @@ void goThinkComputer(char bag[7], char *word, int row, int col, char direction, 
 		i++;
 	}
 	bags[wordOnBoardLength + i] = '\0';
-	generateWord(bags, bag, word, letterOnBoard, row, col, direction, 4, &isFound, 0);
+	
+	while (difficulty > 2 && !isFound){
+		generateWord(bags, bag, word, letterOnBoard, *row, *col, direction, difficulty, &isFound, 0);
+		difficulty--;
+	}
+	if (isFound){
+		reposition(word, row, col, direction);
+	}
     free(letterOnBoard);
     free(bags);
+}
+
+/*
+
+*/
+void swapLetter_Com(char bag[7]){
+	int N, i, ind;
+	char temp;
+
+	srand(time(NULL)*345872923);
+	N = rand()%7 + 1;
+	int index[N];
+
+	i = 0;
+	while (i < N){
+		srand(time(NULL)*345872923*i);
+		index[i] = rand()%7 + 1;
+		i++;
+	}
+
+	i = 0;
+	while (i < N){
+		index[i]--;
+		temp = bag[index[i]];
+		srand(time(NULL)*i*399397132);
+		ind = rand() % _Main_Bag_Size;
+		bag[index[i]] = _Main_Bag[ind];
+		_Main_Bag[ind] = temp;
+		i++;
+	}
 }

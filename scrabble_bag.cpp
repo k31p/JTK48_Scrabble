@@ -1,5 +1,6 @@
 #include "scrabble_bag.h"
 
+int _Main_Bag_Size = 98;
 char _Main_Bag[98] = {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', // 12 A
                     'B', 'B', 'B', // 3 B
                     'C', 'C', // 2 C
@@ -27,8 +28,6 @@ char _Main_Bag[98] = {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'
                     'Y', 'Y', // 2 Y
                     'Z', // 1 Z
                     };
-
-int _Main_Bag_Size = 98;
 
 /*
 
