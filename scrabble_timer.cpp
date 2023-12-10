@@ -7,8 +7,8 @@ bool _Stop_Thread;
 int _Timer;
 
 void initTimer(){
-    _Timer = 60;
-    _Stop_Thread = false;
+  _Timer = 60;
+  _Stop_Thread = false;
 }
 
 void* countdown_thread(void* arg) {
@@ -29,8 +29,8 @@ void* countdown_thread(void* arg) {
 }
 
 void startCountdown(){
-    pthread_t timer_thread;
-    pthread_create(&timer_thread, NULL, &countdown_thread, NULL);
+  pthread_t timer_thread;
+  pthread_create(&timer_thread, NULL, &countdown_thread, NULL);
 }
 
 void endCountdown(){

@@ -100,4 +100,6 @@ void goThinkComputer(char bag[7], char *word, int row, int col, char direction, 
 	}
 	bags[wordOnBoardLength + i] = '\0';
 	generateWord(bags, bag, word, letterOnBoard, row, col, direction, 4, &isFound, 0);
+    free(letterOnBoard);
+    free(bags);
 }
