@@ -14,9 +14,9 @@
 #ifdef _WIN32
 #include <windows.h>
 #include <conio.h> // For _getch() function
-HANDLE hConsole = INVALID_HANDLE_VALUE, hAlternateScreen = INVALID_HANDLE_VALUE; // WinAPI structures for console
-CONSOLE_SCREEN_BUFFER_INFO csbi;
-CONSOLE_CURSOR_INFO cci;
+extern HANDLE hConsole, hAlternateScreen; // WinAPI structures for console
+extern CONSOLE_SCREEN_BUFFER_INFO csbi;
+extern CONSOLE_CURSOR_INFO cci;
 #else
 #include <sys/ioctl.h>
 #include <termios.h>

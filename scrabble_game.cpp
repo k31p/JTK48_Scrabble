@@ -6,7 +6,6 @@
 #include "scrabble_scoring.h"
 #include "scrabble_timer.h"
 #include "scrabble_utilities.h"
-#include "tercontrol.h"
 #include <unistd.h>
 
 int globalChoice = 1;

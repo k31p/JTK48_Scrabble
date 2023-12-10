@@ -1,6 +1,7 @@
 #ifndef SCRABBLE_MENU_H
 #define SCRABBLE_MENU_H
 
+#include <unistd.h>
 #include "tercontrol.h"
 #include <stdio.h>
 #include <stdlib.h>

@@ -48,6 +48,7 @@ void initPlayerBag(char playerBag[7]){
 */
 void printBag(char bag[7]){
 	int i = 0;
+	printf("Player's Bag: ");
 	printf("[");
 	while (i < 6){
 		printf(" %c,",bag[i]);

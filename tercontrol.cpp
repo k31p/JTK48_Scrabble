@@ -2,6 +2,10 @@
 
 #ifdef _WIN32
 
+HANDLE hConsole = INVALID_HANDLE_VALUE, hAlternateScreen = INVALID_HANDLE_VALUE;
+CONSOLE_SCREEN_BUFFER_INFO csbi;
+CONSOLE_CURSOR_INFO cci;
+
 char *tc_color_id(uint8_t cid, int l){ 
     // "l" flag is ignored, just to make it compatible with the POSIX version
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
