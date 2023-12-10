@@ -1,8 +1,9 @@
 #include "scrabble_player.h" 
+#include "scrabble_bag.h"
 #include <cstdio>
 
 unsigned int _Total_Player;
-int _Current_Turn; 
+int _Current_Player_Turn = 1; 
 Player _Players[4];
 
 void initPlayers(unsigned int numPlayers){
@@ -36,6 +37,7 @@ void initPlayers(unsigned int numPlayers){
             printf("\n");
         }
 
+        initPlayerBag(_Players[i].bag);
     }
 }
 
@@ -49,14 +51,14 @@ void printPlayers(unsigned int numPlayers){
 }
 
 void nextTurn(){
-    _Current_Turn = _Current_Turn + 1;
-    if(_Current_Turn > _Total_Player){
-        _Current_Turn = 1;
+    _Current_Player_Turn = _Current_Player_Turn + 1;
+    if(_Current_Player_Turn > _Total_Player){
+        _Current_Player_Turn = 1;
     }
 }
 
 void setTurn(int nPlayer){
     if(nPlayer > 0 && nPlayer <= _Total_Player){
-        _Current_Turn = nPlayer;
+        _Current_Player_Turn = nPlayer;
     }
 }

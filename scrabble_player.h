@@ -10,12 +10,13 @@
 
 typedef struct {
     char namaPlayer[MAX_PLAYERNAME_LENGTH];
+    char bag[7];
     unsigned int skor;
     bool is_computer;
 } Player;
 
 extern unsigned int _Total_Player;
-extern int _Current_Turn; 
+extern int _Current_Player_Turn; 
 extern Player _Players[4];
 
 /*  
@@ -46,5 +47,7 @@ void initPlayers(unsigned int numPlayers);
     Dibuat oleh     : Yobel El'Roy Doloksaribu 
 */
 void printPlayers(unsigned int numPlayers);
+
+void nextTurn();
 
 #endif 

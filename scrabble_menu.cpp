@@ -1,4 +1,5 @@
 #include "scrabble_menu.h"
+#include "scrabble_game.h"
 
 int _Y_Pos = 1;
 int globalMenuChoice = 1;
@@ -57,13 +58,12 @@ void Credit(){
     printf("%s",TC_WHT);
 }
 
-void selectMenu(bool &toggle){
+void selectMenu(){
     switch(globalMenuChoice){
         case 1:
-            toggle = false;
+            initNewGame();
             break;
         case 2:
-            toggle = false;
             break;
         case 3:
             HowToPlay();
@@ -75,7 +75,6 @@ void selectMenu(bool &toggle){
             tc_clear_screen();
             printf("Selamat tinggal...");
             sleep(2);
-            toggle = false;
             break;
     }
 }
@@ -107,7 +106,7 @@ void switchMenu(char menus[5][50], int menuPos, bool &toggle){
         }
         createMenus(menus, menuPos);
     } else if(input == '\n' || input == '\r'){
-        selectMenu(toggle);
+        toggle = false;
     }
 }
 
@@ -133,4 +132,6 @@ void displayMainMenu() {
     while(toggle){
         switchMenu(menus, menuPos, toggle);
     }
+
+    selectMenu();
 }

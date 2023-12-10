@@ -6,7 +6,10 @@
 
 #include "tercontrol.h"
 
-void newGame();
+#define MAX_PLAYER_SELECTION 3
+
+void initNewGame();
+void startGame();
 void loadGame();
 
 #endif

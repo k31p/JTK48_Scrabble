@@ -19,7 +19,7 @@ void loadgame(unsigned int LoadNumber){
 
    fread(_Players,sizeof(_Players),(LoadNumber*3)-2,file);
    fread(_Board, sizeof(_Board),(LoadNumber*3)-1,file);
-   fread(&_Current_Turn,sizeof(_Current_Turn),LoadNumber*3,file);
+   fread(&_Current_Player_Turn,sizeof(_Current_Player_Turn),LoadNumber*3,file);
    printPlayers(4);
    printBoard();
    fclose(file);
@@ -36,7 +36,7 @@ void saveGame(unsigned int saveNumber){
 
    fwrite(_Players,sizeof(_Players),(saveNumber*3)-2,file);
    fwrite(_Board, sizeof(_Board),(saveNumber*3)-1,file);
-   fwrite(&_Current_Turn,sizeof(_Current_Turn),saveNumber*3,file);
+   fwrite(&_Current_Player_Turn,sizeof(_Current_Player_Turn),saveNumber*3,file);
    fclose(file);
 }
 
