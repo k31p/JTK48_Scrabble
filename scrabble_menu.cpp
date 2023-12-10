@@ -75,6 +75,7 @@ void selectMenu(){
         case 5:
             tc_clear_screen();
             printf("Selamat tinggal...");
+            sleep(2);
             exit(0);
             break;
     }
