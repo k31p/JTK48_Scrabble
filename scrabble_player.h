@@ -1,5 +1,5 @@
-#ifndef scrabble_player_H
-#define scrabble_player_H
+#ifndef SCRABBLE_PLAYER_H
+#define SCRABBLE_PLAYER_H
 
 #include "scrabble_utilities.h"
 

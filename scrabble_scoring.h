@@ -1,8 +1,8 @@
 //
 //
 
-#ifndef SCORING_H
-#define SCORING_H
+#ifndef SCRABBLE_SCORING_H
+#define SCRABBLE_SCORING_H
 
 #include <stdio.h>
 #include <string.h>

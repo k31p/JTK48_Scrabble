@@ -1,9 +1,6 @@
 #include "scrabble_menu.h"
-#include "tercontrol/tercontrol.h"
-#include <cstdio>
-#include <cstdlib>
 
-int globalYPos = 1;
+int _Y_Pos = 1;
 int globalMenuChoice = 1;
 
 void centerPos(const char *text){
@@ -14,15 +11,15 @@ void centerPos(const char *text){
     midCol = cols / 2;
 
     xPos = midCol - (strlen(text) / 2);
-    tc_set_cursor(xPos, globalYPos);
+    tc_set_cursor(xPos, _Y_Pos);
     puts(text);
-    tc_set_cursor(1, ++globalYPos);
+    tc_set_cursor(1, ++_Y_Pos);
 }
 
 void createMenus(char menus[5][50], int startPos){
     tc_set_cursor(1, startPos);
     tc_clear_from_cursor_to_bottom();
-    globalYPos = startPos;
+    _Y_Pos = startPos;
 
     for(int i = 0; i < 5; i++){
         char *text;
@@ -60,11 +57,13 @@ void Credit(){
     printf("%s",TC_WHT);
 }
 
-void selectMenu(){
+void selectMenu(bool &toggle){
     switch(globalMenuChoice){
         case 1:
+            toggle = false;
             break;
         case 2:
+            toggle = false;
             break;
         case 3:
             HowToPlay();
@@ -76,12 +75,12 @@ void selectMenu(){
             tc_clear_screen();
             printf("Selamat tinggal...");
             sleep(2);
-            exit(0);
+            toggle = false;
             break;
     }
 }
 
-void switchMenu(char menus[5][50], int menuPos){
+void switchMenu(char menus[5][50], int menuPos, bool &toggle){
     char input = tc_getch();
     if(input == 'w' || input == 'W'){
         globalMenuChoice--;
@@ -108,7 +107,7 @@ void switchMenu(char menus[5][50], int menuPos){
         }
         createMenus(menus, menuPos);
     } else if(input == '\n' || input == '\r'){
-        selectMenu();
+        selectMenu(toggle);
     }
 }
 
@@ -126,11 +125,12 @@ void displayMainMenu() {
     centerPos("==============================");
     centerPos("SCRABBLE BY JTK48");
     centerPos("==============================");
-    menuPos = globalYPos;
+    menuPos = _Y_Pos;
     createMenus(menus, menuPos);
 
     tc_echo_off();
-    for(;;){
-        switchMenu(menus, menuPos);
+    bool toggle = true;
+    while(toggle){
+        switchMenu(menus, menuPos, toggle);
     }
 }

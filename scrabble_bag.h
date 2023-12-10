@@ -1,5 +1,5 @@
-#ifndef BAG_H
-#define BAG_H
+#ifndef SCRABBLE_BAG_H
+#define SCRABBLE_BAG_H
 
 #include <stdio.h>
 #include <stdlib.h>

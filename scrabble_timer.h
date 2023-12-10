@@ -1,5 +1,5 @@
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef SCRABBLE_TIMER_H
+#define SCRABBLE_TIMER_H
 
 #include <stdio.h> 
 #include <stdlib.h>

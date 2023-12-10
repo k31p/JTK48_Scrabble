@@ -36,9 +36,3 @@ void saveGame(unsigned int saveNumber){
    fwrite(_Board, sizeof(_Board), saveNumber + 1, file);
    fclose(file);
 }
-
-int main (){
-   // saveGame(1);
-   loadgame(1);
-   return 0; 
-}
