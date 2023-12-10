@@ -1,5 +1,4 @@
 // MODUL TIMER
-//
 
 #include "scrabble_timer.h"
 

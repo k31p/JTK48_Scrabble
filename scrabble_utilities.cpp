@@ -331,7 +331,7 @@ bool isValid(char bag[7], char *word, char board[15][15], int row, int col, char
 /*
 
 */
-void unvalidMessage(char bag[7], char *word, char board[15][15], int row, int col, char direction){
+void invalidMessage(char bag[7], char *word, char board[15][15], int row, int col, char direction){
 	if (!validateWordWithBag(bag, word, row, col, direction)){
 		printf("Huruf yang dimiliki kurang untuk membentuk kata tersebut.\n");
 	}
