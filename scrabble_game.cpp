@@ -133,6 +133,7 @@ void startGame(){
                     break;
             }
         }
+        _Players[_Current_Player_Turn - 1] = currentPlayer;
         free(word);
         free(letterOnBoard);
 
