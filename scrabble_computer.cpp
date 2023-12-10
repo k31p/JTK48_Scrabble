@@ -1,8 +1,5 @@
 #include "scrabble_computer.h"
 
-/*
-
-*/
 int setDifficulty(){
 	int input;
 	printf("Select Difficulty of Computer:\n");
@@ -16,12 +13,11 @@ int setDifficulty(){
 		return 4;
 	} else if (input==3){
 		return 5;
-	}
+	} else {
+        return 3;
+    }
 }
 
-/*
-
-*/
 void choosePosition(char *enemyWord, int enemyRow, int enemyCol, char enemyDirection, int *row, int *col, char *direction){
 	int enemyWordLength = strlen(enemyWord);
 	int intersectList[enemyWordLength][2];
@@ -49,9 +45,6 @@ void choosePosition(char *enemyWord, int enemyRow, int enemyCol, char enemyDirec
 	}
 }
 
-/*
-
-*/
 void generateWord(char *bags, char bag[7], char *word, char *letterOnBoard, int row, int col, char direction, int difficulty, bool *isFound, int depth){
 	if (depth == difficulty){
 		word[difficulty] = '\0';
@@ -72,9 +65,6 @@ void generateWord(char *bags, char bag[7], char *word, char *letterOnBoard, int 
 	}
 }
 
-/*
-
-*/
 void reposition(char *word, int *row, int *col, char direction){
 	int wordLength = strlen(word);
 	int i = 0;
@@ -117,9 +107,6 @@ void goThinkComputer(char bag[7], char *word, int *row, int *col, char direction
     free(bags);
 }
 
-/*
-
-*/
 void swapLetter_Com(char bag[7]){
 	int N, i, ind;
 	char temp;

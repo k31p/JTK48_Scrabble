@@ -119,13 +119,14 @@ void startGame(){
                         printf("\n");
                         getInput(word, &row, &col, &direction);
                         invalidMessage(currentPlayer.bag, word, _Board, row, col, direction);
-                    } while (!isValid(currentPlayer.bag, word, _Board, row, col, direction));
-                    
-                    extractLetter(letterOnBoard, row, col, direction, word);
-                    placeTiles(word, row, col, direction);
-                    removePlayerLetter(word, currentPlayer.bag, letterOnBoard);
-                    fillPlayerBag(currentPlayer.bag);
-                    currentPlayer.skor += hitungSkorKata(word);
+                    } while (!isValid(currentPlayer.bag, word, _Board, row, col, direction) && _Timer > 0);
+                    if (_Timer > 0){
+                        extractLetter(letterOnBoard, row, col, direction, word);
+                        placeTiles(word, row, col, direction);
+                        removePlayerLetter(word, currentPlayer.bag, letterOnBoard);
+                        fillPlayerBag(currentPlayer.bag);
+                        currentPlayer.skor += hitungSkorKata(word);
+                    }
                     break;
                 case 3:
                     break;
