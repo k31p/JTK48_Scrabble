@@ -21,7 +21,7 @@ void* countdown_thread(void* arg) {
     printf("\033[s");
     if (_Stop_Thread){
     	break;
-	}
+	  }
     printf("\033[1A\r\033[K");
     printf("Sisa waktu: %d detik\n", _Timer);
   }
