@@ -96,7 +96,7 @@ void startGame(){
         printBag(currentPlayer.bag);
         printf("SCORE: %d\n", currentPlayer.skor);
         if(currentPlayer.is_computer){
-
+            
         } else {
             printf("1. Swap\n");
             printf("2. Place Word\n");

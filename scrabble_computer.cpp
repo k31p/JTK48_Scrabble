@@ -7,12 +7,8 @@ int setDifficulty(){
 	printf("2. Normal\n");
 	printf("3. Hard\n");
 	scanf(" %d", &input);
-	if (input==1){
-		return 3;
-	} else if (input==2){
-		return 4;
-	} else if (input==3){
-		return 5;
+	if (input>=1 && input<=3){
+		return input + 2;
 	} else {
         return 3;
     }
