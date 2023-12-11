@@ -78,11 +78,12 @@ void endCountdown(){
 
 void chooseTime(){
   int time_mode;
+  tc_clear_screen();
   centerPos("Pilih mode waktu:\n");
   centerPos("1. 60 detik\n");
   centerPos("2. 90 detik\n");
   centerPos("3. 120 detik\n");
-  scanf(" %c", &time_mode);
+  scanf(" %d", &time_mode);
   if (time_mode <= 3 && time_mode >= 1){
     _Max_Time = 30 + 30*time_mode;
   } else {
