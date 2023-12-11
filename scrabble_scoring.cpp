@@ -53,6 +53,28 @@ void showWinner(){
         i++;
     }
     tc_getch();
-    printf("\t\t\t\t\t\tWinner: %s\n", _Players[0].namaPlayer);
+    printf("\n\t\t\t\t\t\tWinner: %s\n", _Players[0].namaPlayer);
     tc_getch();
+}
+
+void showHighscore(){
+    int highscore;
+    FILE* file = fopen("highscore.txt", "r");
+    fscanf(file, " %d", &highscore);
+    printf("\t\t\t\t\t\tHighscore: %d\n", highscore);
+    fclose(file);
+    tc_getch();
+}
+
+void updateHighscore(){
+    int highscore;
+    FILE* file = fopen("highscore.txt", "r");
+    fscanf(file, " %d", &highscore);
+    if (_Players[0].skor > highscore){
+        highscore = _Players[0].skor;
+    }
+    fclose(file);
+    file = fopen("highscore.txt", "w");
+    fprintf(file, "%d", highscore);
+    fclose(file);
 }

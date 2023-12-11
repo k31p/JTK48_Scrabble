@@ -77,7 +77,6 @@ void initNewGame(){
     tc_echo_on();
     initPlayers(globalChoice + 1);
     startGame();
-    // initPlayers(globalChoice + 1);
 }
 
 void startGame(){
@@ -86,7 +85,7 @@ void startGame(){
     int col = 7, row = 7;
     char *word = (char*) malloc(sizeof(char) * 20);
     _Current_Player_Turn = 1;
-    int round = 24;
+    int round = 1;
     word[0] = '\0';
     word[0] = _Players[_Current_Player_Turn - 1].bag[0];
     chooseTime();
@@ -106,6 +105,7 @@ void startGame(){
         startCountdown();
         sleep(1);
         //tc_set_cursor(1, 2);
+        printf("Round: %d\n", round);
         printf("%s's Turn\n", currentPlayer.namaPlayer);
         printf("Available Letters: \n");
         printBag(currentPlayer.bag);
@@ -176,14 +176,7 @@ void startGame(){
         nextTurn();
     }
     sortingScore();
-    tc_clear_screen();
-    int i = 0;
-    centerPos("Rank:\n");
-    while (i < 4){
-        printf("\t\t\t\t\t\t%d. %s's Score: %d\n", i+1, _Players[i].namaPlayer, _Players[i].skor);
-        i++;
-    }
-    tc_getch();
-    printf("\t\t\t\t\t\tWinner: %s\n", _Players[0].namaPlayer);
-    tc_getch();
+    showWinner();
+    updateHighscore();
+    showHighscore();
 }

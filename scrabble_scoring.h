@@ -24,4 +24,8 @@ void sortingScore();
 
 void showWinner();
 
+void showHighscore();
+
+void updateHighscore();
+
 #endif
