@@ -19,4 +19,9 @@
     Dibuat oleh     : Micho Dhani Firmansyah
 */
 int hitungSkorKata(char *kata);
+
+void sortingScore();
+
+void showWinner();
+
 #endif

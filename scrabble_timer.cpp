@@ -50,6 +50,7 @@ void startCountdown(int xPos, int yPos){
 void* countdown_thread(void* arg) {
   int col, row;
   tc_get_cols_rows(&col, &row);
+  printf("\033[%d;70H", row-1);
   printf("Sisa waktu: %d detik\n", _Timer);
   printf("\033[s");
   while(_Timer > 0) {

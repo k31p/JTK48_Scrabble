@@ -49,7 +49,7 @@ void generateWord(char *bags, char bag[7], char *word, char *letterOnBoard, int 
 		word[difficulty] = '\0';
 		if (checkDictionary(word) && validateWordWithBag(bag, word, row, col, direction) && strstr(word, letterOnBoard) != NULL){
 			*isFound = true;
-			printf("Word: %s", word);
+			printf("Word: %s\n", word);
 		}
 		return;
 	}

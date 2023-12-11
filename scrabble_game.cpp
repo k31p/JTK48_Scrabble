@@ -81,12 +81,14 @@ void initNewGame(){
 }
 
 void startGame(){
-    char direction;
-    int col, row;
+    int difficulty = chooseComputerDifficulty();
+    char direction = 'H';
+    int col = 7, row = 7;
     char *word = (char*) malloc(sizeof(char) * 20);
     _Current_Player_Turn = 1;
-    int round = 1;
-    int difficulty = chooseComputerDifficulty();
+    int round = 24;
+    word[0] = '\0';
+    word[0] = _Players[_Current_Player_Turn - 1].bag[0];
     chooseTime();
     tc_clear_screen();
     initBoard();
@@ -104,13 +106,18 @@ void startGame(){
         startCountdown();
         sleep(1);
         //tc_set_cursor(1, 2);
-        printf("\n%s's Turn\n", currentPlayer.namaPlayer);
+        printf("%s's Turn\n", currentPlayer.namaPlayer);
         printf("Available Letters: \n");
         printBag(currentPlayer.bag);
         printf("Score: %d\n", currentPlayer.skor);
         if(currentPlayer.is_computer){
-            choosePosition(word, row, col, direction, &row, &col, &direction);
+            if (round != 1){
+                choosePosition(word, row, col, direction, &row, &col, &direction);
+            }
 			goThinkComputer(currentPlayer.bag, word, &row, &col, direction, difficulty);
+            if (round == 1){
+                col = 7;
+            }
 			if (isValid(currentPlayer.bag, word, _Board, row, col, direction)){
 				extractLetter(letterOnBoard, row, col, direction, word);
 				placeTiles(word, row, col, direction);
@@ -168,4 +175,15 @@ void startGame(){
         round++;
         nextTurn();
     }
+    sortingScore();
+    tc_clear_screen();
+    int i = 0;
+    centerPos("Rank:\n");
+    while (i < 4){
+        printf("\t\t\t\t\t\t%d. %s's Score: %d\n", i+1, _Players[i].namaPlayer, _Players[i].skor);
+        i++;
+    }
+    tc_getch();
+    printf("\t\t\t\t\t\tWinner: %s\n", _Players[0].namaPlayer);
+    tc_getch();
 }
