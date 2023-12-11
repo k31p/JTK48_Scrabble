@@ -17,23 +17,26 @@ int chooseComputerDifficulty(){
 void choosePosition(char *enemyWord, int enemyRow, int enemyCol, char enemyDirection, int *row, int *col, char *direction){
 	int enemyWordLength = strlen(enemyWord);
 	int intersectList[enemyWordLength][2];
-	int i = 0;
+	int i = 0, m = 0;
 	while(i < enemyWordLength){
 		if (enemyDirection == 'H'){
 			if (!isIntersect(_Board, enemyRow, enemyCol+i, enemyDirection)){
 				intersectList[i][0] = enemyRow;
 				intersectList[i][1] = enemyCol+i;
+				m++;
 			}
 		} else if (enemyDirection == 'V'){
 			if (!isIntersect(_Board, enemyRow+i, enemyCol, enemyDirection)){
 				intersectList[i][0] = enemyRow+i;
 				intersectList[i][1] = enemyCol;
+				m++;
 			}
 		}
 		i++;
 	}
-	*row = intersectList[0][0];
-	*col = intersectList[0][1];
+	int index = (int)ceil((float)(m-1)/2);
+	*row = intersectList[index][0];
+	*col = intersectList[index][1];
 	if (enemyDirection == 'H'){
 		*direction = 'V';
 	} else if (enemyDirection == 'V'){
