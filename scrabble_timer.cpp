@@ -21,18 +21,18 @@ void initTimer(){
 void* countdown_thread(void* arg) {
   int col, row;
   tc_get_cols_rows(&col, &row);
-  printf("\033[%d;70H", row-1);
+  printf("\x1b[%d;70H", row-1);
   printf("Sisa waktu: %d detik\n", _Timer);
-  printf("\033[s");
+  printf("\x1b[s");
   while(_Timer > 0) {
-  	printf("\033[u"); 
+  	printf("\x1b[u"); 
     sleep(1);
     _Timer--;
-    printf("\033[s");
+    printf("\x1b[s");
     if (_Stop_Thread){
     	break;
 	}
-    printf("\033[%d;%dH", row-1, 70);
+    printf("\x1b[%d;%dH", row-1, 70);
     printf("Sisa waktu: %d detik\n", _Timer);
   }
   pthread_exit(NULL); 

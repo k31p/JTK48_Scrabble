@@ -73,7 +73,7 @@ void LoadMenus(){
    centerPos("4. Game 4 \n");
    centerPos("5. Game 5 \n");
    centerPos("=======================\n");
-   scanf("%c",&loadgames);
+   scanf(" %c",&loadgames);
    switch(loadgames){
       case '1':
          loadgame(1);

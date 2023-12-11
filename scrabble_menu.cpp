@@ -66,6 +66,7 @@ void selectMenu(){
             break;
         case 2:
             LoadMenus();
+            tc_echo_on();
             startGame(1);
             break;
         case 3:
