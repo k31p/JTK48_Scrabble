@@ -49,7 +49,7 @@ void initTimer();
 
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
-void startCountdown(int xPos, int yPos);
+//void startCountdown(int xPos, int yPos);
 
 /*  
     Deskripsi       : 
@@ -61,5 +61,9 @@ void startCountdown(int xPos, int yPos);
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
 void endCountdown();
+
+void* countdown_thread(void* arg);
+void startCountdown();
+void chooseTime();
 
 #endif

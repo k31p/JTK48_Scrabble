@@ -13,6 +13,8 @@ void loadgame(unsigned int LoadNumber);
 
 void saveGame(unsigned int saveNumber);
 
-void LoadMenu();
+void saveSlot();
+
+void LoadMenus();
 
 #endif

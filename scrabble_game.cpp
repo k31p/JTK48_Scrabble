@@ -8,6 +8,7 @@
 #include "scrabble_utilities.h"
 #include "scrabble_computer.h"
 #include "tercontrol.h"
+#include "scrabble_saveload.h"
 #include <unistd.h>
 
 int globalChoice = 1;
@@ -85,6 +86,7 @@ void startGame(){
     char *word = (char*) malloc(sizeof(char) * 20);
     _Current_Player_Turn = 1;
     int round = 1;
+    chooseTime();
     tc_clear_screen();
     initBoard();
     while (round <= 25) {
@@ -98,7 +100,7 @@ void startGame(){
         printBoard();
 
         initTimer();
-        //startCountdown(1, 1);
+        startCountdown();
         //tc_set_cursor(1, 2);
         printf("\n%s's Turn\n", currentPlayer.namaPlayer);
         printf("Available Letters: \n");
@@ -152,13 +154,14 @@ void startGame(){
                     break;
                 case 4:
                     tc_clear_screen();
+                    saveSlot();
                     return;
             }
         }
         _Players[_Current_Player_Turn - 1] = currentPlayer;
         free(letterOnBoard);
 
-        //endCountdown();
+        endCountdown();
         round++;
         nextTurn();
     }

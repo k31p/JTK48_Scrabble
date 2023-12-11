@@ -35,16 +35,43 @@ void saveGame(unsigned int saveNumber){
    fclose(file);
 }
 
-void LoadMenu(){
+void saveSlot(){
+   char savegame;
+   tc_clear_screen();
+   centerPos("=======================\n");
+   centerPos("Save Slot\n");
+   centerPos("1. Slot 1 \n");
+   centerPos("2. Slot 2 \n");
+   centerPos("3. Slot 3 \n");
+   centerPos("4. Slot 4 \n");
+   centerPos("5. Slot 5 \n");
+   centerPos("=======================\n");
+   scanf(" %c", &savegame);
+   switch(savegame){
+      case '1':
+         saveGame(1);
+      case '2':
+         saveGame(2);
+      case '3':
+         saveGame(3);
+      case '4':
+         saveGame(4);
+      case '5':
+         saveGame(5);
+   };
+}
+
+void LoadMenus(){
    char loadgames;
-   printf("=======================\n");
-   printf("      Load Game\n");
-   printf("      1. Game 1 \n");
-   printf("      2. Game 2 \n");
-   printf("      3. Game 3 \n");
-   printf("      4. Game 4 \n");
-   printf("      5. Game 5 \n");
-   printf("=======================\n");
+   tc_clear_screen();
+   centerPos("=======================\n");
+   centerPos("Saved Game\n");
+   centerPos("1. Game 1 \n");
+   centerPos("2. Game 2 \n");
+   centerPos("3. Game 3 \n");
+   centerPos("4. Game 4 \n");
+   centerPos("5. Game 5 \n");
+   centerPos("=======================\n");
    scanf("%c",&loadgames);
    switch(loadgames){
       case '1':

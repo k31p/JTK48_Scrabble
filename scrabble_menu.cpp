@@ -1,6 +1,6 @@
 #include "scrabble_menu.h"
 #include "scrabble_game.h"
-#include <unistd.h>
+#include "scrabble_saveload.h"
 
 int _Y_Pos = 1;
 int globalMenuChoice = 1;
@@ -65,6 +65,7 @@ void selectMenu(){
             initNewGame();
             break;
         case 2:
+            LoadMenus();
             break;
         case 3:
             HowToPlay();

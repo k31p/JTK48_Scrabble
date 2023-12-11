@@ -29,11 +29,11 @@ void printBoard(){
 	int i, j, k;
 	int termCols, termRows;
 	
-	tc_get_cols_rows(&termCols, &termRows);
+	//tc_get_cols_rows(&termCols, &termRows);
 	int colPos = (termCols / 2) - 2;
 	int rowPos = 1;
 
-	tc_set_cursor(colPos, rowPos);
+	//tc_set_cursor(colPos, rowPos);
 	
 	k = 0;
 	printf("   ");
@@ -42,11 +42,11 @@ void printBoard(){
 		k++;
 	}
 	
-	tc_set_cursor(colPos, ++rowPos);
+	//tc_set_cursor(colPos, ++rowPos);
 
 	k = 0;
 	while (k<15){
-		tc_set_cursor(colPos, rowPos);
+		//tc_set_cursor(colPos, rowPos);
 		printf("  ");
 		i = 0;
 		while (i<15){
@@ -55,7 +55,7 @@ void printBoard(){
 		}
 		printf("+");
 		printf("\n");
-		tc_set_cursor(colPos, ++rowPos);
+		//tc_set_cursor(colPos, ++rowPos);
 		
 		printf("%2d", (1+k));		
 
@@ -71,7 +71,7 @@ void printBoard(){
 		k++;
 	}
 	
-	tc_set_cursor(colPos, rowPos);
+	//tc_set_cursor(colPos, rowPos);
 	
 	printf("  ");
 	i = 0;
@@ -79,7 +79,7 @@ void printBoard(){
 		printf("+---");
 		i++;
 	}
-	printf("+");
+	printf("+\n");
 }
 
 /*
