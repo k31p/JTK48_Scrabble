@@ -11,7 +11,24 @@
 
 extern int _Y_Pos;
 
+/*  
+    Deskripsi       : Menengahkan teks di tengah layar pada posisi vertikal _Y_Pos.
+
+    Parameter       :
+        - text         -> const char* (teks yang akan ditampilkan).
+
+    Dibuat oleh     : Yobel El'Roy D
+*/
 void centerPos(const char *text);
+
+/*  
+    Deskripsi       : Menampilkan layar menu utama dan memproses input pemain.
+
+    Variabel Global:
+        - globalMenuChoice -> int (pilihan menu global).
+
+    Dibuat oleh     : Yobel El'Roy D
+*/
 void displayMainMenu();
 
 #endif

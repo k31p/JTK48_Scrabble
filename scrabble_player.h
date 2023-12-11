@@ -29,7 +29,7 @@ extern Player _Players[4];
     F.S             :
         Parameter players terisi oleh user
 
-    Dibuat oleh     : Yobel El'Roy Doloksaribu 
+    Dibuat oleh     : Yobel El'Roy D 
 */
 void initPlayers(unsigned int numPlayers); 
 
@@ -44,10 +44,18 @@ void initPlayers(unsigned int numPlayers);
     F.S             :
         Isi dari parameter players tertampil pada layar
 
-    Dibuat oleh     : Yobel El'Roy Doloksaribu 
+    Dibuat oleh     : Yobel El'Roy D
 */
 void printPlayers(unsigned int numPlayers);
 
+/*  
+    Deskripsi       : Mengganti giliran pemain menjadi pemain berikutnya.
+
+    F.S             :
+        Mengganti giliran pemain saat ini menjadi pemain berikutnya.
+
+    Dibuat oleh     : Yobel El'Roy D
+*/
 void nextTurn();
 
 #endif 

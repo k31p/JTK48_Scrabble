@@ -9,13 +9,14 @@
 #include "scrabble_board.h"
 
 /*  
-    Deskripsi       : Menghilangkan newline dari suatu string.
+    Deskripsi       : 
+        Prosedur ini berfungsi untuk menghilangkan newline dari suatu string
 
     Parameter       :
         1. string       -> char*
 
     F.S             :
-        String tidak mengandung newline.
+        String tidak mengandung newline
 
     Dibuat oleh     : Yobel El'Roy D
 */
@@ -77,7 +78,7 @@ bool checkBound(int row, int col);
 
     Dibuat oleh     : Amr Fadhilah AAB
 */
-bool isTilesEmpty(int wordLength, char board[15][15], int row, int col, char direction, int depth);
+bool isTilesEmpty(int wordLength, char board[15][15], int row, int col, int direction, int depth);
 
 /*  
     Deskripsi       : Memvalidasi apakah kata sesuai dengan huruf yang ada dalam tas.
@@ -125,7 +126,7 @@ bool isPositionValid(char *word, int row, int col, char direction);
 
     Dibuat oleh     : Amr Fadhilah AAB
 */
-bool isOverlappingWordValid(char board[15][15], char *word, int row, int col, char direction);
+bool isOverlappingWordValid(char board[15][15], char *word, int row, int col, int direction);
 
 /*  
     Deskripsi       : Memeriksa apakah suatu tile/kotak berpotongan dengan kata lain.

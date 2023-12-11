@@ -8,6 +8,8 @@
 #include "scrabble_player.h"
 #include "scrabble_board.h"
 #include "scrabble_menu.h"
+#include "scrabble_timer.h"
+#include "scrabble_computer.h"
 
 /*  
     Deskripsi       : Memuat permainan dari file yang disimpan.

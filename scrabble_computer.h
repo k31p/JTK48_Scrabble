@@ -13,6 +13,7 @@
 #include "scrabble_board.h"
 #include "scrabble_bag.h"
 
+extern int _Difficulty;
 
 int chooseComputerDifficulty();
 

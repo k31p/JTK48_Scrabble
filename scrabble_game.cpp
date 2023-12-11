@@ -13,6 +13,7 @@
 
 int globalChoice = 1;
 bool globalToggle = true;
+int _Round;
 
 void printPlayerChoices(char option[3][20]){
     _Y_Pos = 2;
@@ -76,28 +77,30 @@ void initNewGame(){
 
     tc_echo_on();
     initPlayers(globalChoice + 1);
-    startGame();
+    startGame(0);
 }
 
-void startGame(){
-    int difficulty = chooseComputerDifficulty();
+void startGame(bool loading_game){
     char direction = 'H';
     int col = 7, row = 7;
     char *word = (char*) malloc(sizeof(char) * 20);
-    _Current_Player_Turn = 1;
-    int round = 1;
-    word[0] = '\0';
-    word[0] = _Players[_Current_Player_Turn - 1].bag[0];
-    chooseTime();
-    tc_clear_screen();
-    initBoard();
-    while (round <= 25) {
+    if (!loading_game){
+        _Difficulty = chooseComputerDifficulty();
+        chooseTime();
+        _Current_Player_Turn = 1;
+        _Round = 1;
+        word[0] = '\0';
+        word[0] = _Players[_Current_Player_Turn - 1].bag[0];
+        tc_clear_screen();
+        initBoard();
+    }
+    while (_Round <= 25) {
         Player currentPlayer = _Players[_Current_Player_Turn - 1];
-        int termRows, termCols;
+        //int termRows, termCols;
         int choice;
         char *letterOnBoard = (char*) malloc(sizeof(char) * 20);
 
-        tc_get_cols_rows(&termCols, &termRows);
+        //tc_get_cols_rows(&termCols, &termRows);
 
         printBoard();
 
@@ -105,17 +108,17 @@ void startGame(){
         startCountdown();
         sleep(1);
         //tc_set_cursor(1, 2);
-        printf("Round: %d\n", round);
+        printf("Round: %d\n", _Round);
         printf("%s's Turn\n", currentPlayer.namaPlayer);
         printf("Available Letters: \n");
         printBag(currentPlayer.bag);
         printf("Score: %d\n", currentPlayer.skor);
         if(currentPlayer.is_computer){
-            if (round != 1){
+            if (_Round != 1){
                 choosePosition(word, row, col, direction, &row, &col, &direction);
             }
-			goThinkComputer(currentPlayer.bag, word, &row, &col, direction, difficulty);
-            if (round == 1){
+			goThinkComputer(currentPlayer.bag, word, &row, &col, direction, _Difficulty);
+            if (_Round == 1){
                 col = 7;
             }
 			if (isValid(currentPlayer.bag, word, _Board, row, col, direction)){
@@ -172,7 +175,7 @@ void startGame(){
         free(letterOnBoard);
 
         endCountdown();
-        round++;
+        _Round++;
         nextTurn();
     }
     sortingScore();

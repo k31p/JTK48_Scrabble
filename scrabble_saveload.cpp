@@ -12,11 +12,11 @@ void loadgame(unsigned int LoadNumber){
       printf("Load gagal\n");
    }
 
-   fread(_Players,sizeof(_Players),(LoadNumber*3)-2,file);
-   fread(_Board, sizeof(_Board),(LoadNumber*3)-1,file);
-   fread(&_Current_Player_Turn,sizeof(_Current_Player_Turn),LoadNumber*3,file);
-   printPlayers(4);
-   printBoard();
+   fread(_Players,sizeof(_Players),(LoadNumber*5)-4,file);
+   fread(_Board, sizeof(_Board),(LoadNumber*5)-3,file);
+   fread(&_Current_Player_Turn,sizeof(_Current_Player_Turn),(LoadNumber*5)-2,file);
+   fread(&_Max_Time, sizeof(_Max_Time), (LoadNumber*5)-1,file);
+   fread(&_Difficulty, sizeof(_Difficulty), LoadNumber*5,file);
    fclose(file);
 }
 
@@ -28,9 +28,11 @@ void saveGame(unsigned int saveNumber){
    // savedata.players = _Players;
    // savedata.board = _Board;
 
-   fwrite(_Players,sizeof(_Players),(saveNumber*3)-2,file);
-   fwrite(_Board, sizeof(_Board),(saveNumber*3)-1,file);
-   fwrite(&_Current_Player_Turn,sizeof(_Current_Player_Turn),saveNumber*3,file);
+   fwrite(_Players,sizeof(_Players),(saveNumber*5)-4,file);
+   fwrite(_Board, sizeof(_Board),(saveNumber*5)-3,file);
+   fwrite(&_Current_Player_Turn,sizeof(_Current_Player_Turn),(saveNumber*5)-2,file);
+   fwrite(&_Max_Time, sizeof(_Max_Time), (saveNumber*5)-1,file);
+   fwrite(&_Difficulty, sizeof(_Difficulty), saveNumber*5,file);
    fclose(file);
 }
 

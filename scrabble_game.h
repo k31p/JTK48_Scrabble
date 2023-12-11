@@ -9,7 +9,7 @@
 #define MAX_PLAYER_SELECTION 3
 
 void initNewGame();
-void startGame();
+void startGame(bool loading_game);
 void loadGame();
 
 #endif

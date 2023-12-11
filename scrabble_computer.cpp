@@ -1,5 +1,7 @@
 #include "scrabble_computer.h"
 
+int _Difficulty;
+
 int chooseComputerDifficulty(){
 	int input;
 	printf("Select Difficulty of Computer:\n");
