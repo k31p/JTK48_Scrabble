@@ -6,6 +6,7 @@
 #include "scrabble_scoring.h"
 #include "scrabble_timer.h"
 #include "scrabble_utilities.h"
+#include "scrabble_computer.h"
 #include "tercontrol.h"
 #include <unistd.h>
 
@@ -79,6 +80,9 @@ void initNewGame(){
 }
 
 void startGame(){
+    char direction;
+    int col, row;
+    char *word = (char*) malloc(sizeof(char) * 20);
     _Current_Player_Turn = 1;
     int round = 1;
     tc_clear_screen();
@@ -87,9 +91,6 @@ void startGame(){
         Player currentPlayer = _Players[_Current_Player_Turn - 1];
         int termRows, termCols;
         int choice;
-        char direction;
-        int col, row;
-        char *word = (char*) malloc(sizeof(char) * 20);
         char *letterOnBoard = (char*) malloc(sizeof(char) * 20);
 
         tc_get_cols_rows(&termCols, &termRows);
@@ -97,14 +98,24 @@ void startGame(){
         printBoard();
 
         initTimer();
-        startCountdown(1, 1);
-        tc_set_cursor(1, 2);
-        printf("%s's Turn\n", currentPlayer.namaPlayer);
+        //startCountdown(1, 1);
+        //tc_set_cursor(1, 2);
+        printf("\n%s's Turn\n", currentPlayer.namaPlayer);
         printf("Available Letters: \n");
         printBag(currentPlayer.bag);
         printf("Score: %d\n", currentPlayer.skor);
         if(currentPlayer.is_computer){
-            
+            choosePosition(word, row, col, direction, &row, &col, &direction);
+			goThinkComputer(currentPlayer.bag, word, &row, &col, direction, 4);
+			if (isValid(currentPlayer.bag, word, _Board, row, col, direction)){
+				extractLetter(letterOnBoard, row, col, direction, word);
+				placeTiles(word, row, col, direction);
+				removePlayerLetter(word, currentPlayer.bag, letterOnBoard);
+				fillPlayerBag(currentPlayer.bag);
+				currentPlayer.skor += hitungSkorKata(word);
+			} else {
+				swapLetter_Com(currentPlayer.bag);
+			}
         } else {
             printf("1. Swap\n");
             printf("2. Place Word\n");
@@ -140,14 +151,14 @@ void startGame(){
                 case 3:
                     break;
                 case 4:
-                    break;
+                    tc_clear_screen();
+                    return;
             }
         }
         _Players[_Current_Player_Turn - 1] = currentPlayer;
-        free(word);
         free(letterOnBoard);
 
-        endCountdown();
+        //endCountdown();
         round++;
         nextTurn();
     }

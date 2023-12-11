@@ -56,7 +56,7 @@ void generateWord(char *bags, char bag[7], char *word, char *letterOnBoard, int 
 	int i = 0;
 	while (i < strlen(bags)){
 		word[depth] = bags[i];
-		generateWord(bags, bag, word, letterOnBoard, row, col, direction, 3, isFound, depth+1);
+		generateWord(bags, bag, word, letterOnBoard, row, col, direction, difficulty, isFound, depth+1);
 		if (*isFound){
 			return;
 		}

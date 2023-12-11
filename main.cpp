@@ -1,6 +1,7 @@
 #include "scrabble_menu.h"
 
 int main(void){
-    displayMainMenu();
-    return 0;
+    while(1){
+        displayMainMenu();
+    }
 }

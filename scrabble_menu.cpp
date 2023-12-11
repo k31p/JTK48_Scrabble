@@ -50,13 +50,13 @@ void HowToPlay(){
 
 void Credit(){
     tc_clear_screen();
-    printf("%s",TC_RED);
+    printf("%s", TC_B_MAG);
     centerPos("Made by JTK48");
     centerPos("Member's Group");
     centerPos("1. Yobel El'Roy Doloksaribu - 231524029");
     centerPos("2. Amr Fadhilah Abiyyu Alif Basysyar - 231524002");
     centerPos("3. Micho Dhani Firmansyah - 231524013");
-    printf("%s",TC_WHT);
+    printf("\033[0m");
 }
 
 void selectMenu(){
@@ -68,15 +68,17 @@ void selectMenu(){
             break;
         case 3:
             HowToPlay();
+            tc_getch();
             break;
         case 4:
             Credit();
+            tc_getch();
             break;
         case 5:
             tc_clear_screen();
             printf("Selamat tinggal...");
             sleep(2);
-            break;
+            exit(0);
     }
 }
 
