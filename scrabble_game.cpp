@@ -6,6 +6,7 @@
 #include "scrabble_scoring.h"
 #include "scrabble_timer.h"
 #include "scrabble_utilities.h"
+#include "tercontrol.h"
 #include <unistd.h>
 
 int globalChoice = 1;
@@ -80,21 +81,28 @@ void initNewGame(){
 void startGame(){
     _Current_Player_Turn = 1;
     int round = 1;
+    tc_clear_screen();
     initBoard();
     while (round <= 25) {
         Player currentPlayer = _Players[_Current_Player_Turn - 1];
+        int termRows, termCols;
         int choice;
         char direction;
         int col, row;
         char *word = (char*) malloc(sizeof(char) * 20);
         char *letterOnBoard = (char*) malloc(sizeof(char) * 20);
 
+        tc_get_cols_rows(&termCols, &termRows);
+
         printBoard();
+
         initTimer();
-        startCountdown();
-        printf("BAG\n");
+        startCountdown(1, 1);
+        tc_set_cursor(1, 2);
+        printf("%s's Turn\n", currentPlayer.namaPlayer);
+        printf("Available Letters: \n");
         printBag(currentPlayer.bag);
-        printf("SCORE: %d\n", currentPlayer.skor);
+        printf("Score: %d\n", currentPlayer.skor);
         if(currentPlayer.is_computer){
 
         } else {
@@ -102,6 +110,7 @@ void startGame(){
             printf("2. Place Word\n");
             printf("3. Skip\n");
             printf("4. Exit\n");
+            printf("Pilih: ");
             scanf("%d", &choice);
             switch(choice){
                 case 1:

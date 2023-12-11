@@ -6,6 +6,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include "tercontrol.h"
 
 // _Stop_Thread: Digunakan untuk mengontrol apakah thread countdown harus dihentikan atau tidak.
 extern bool _Stop_Thread;
@@ -37,7 +38,7 @@ void initTimer();
 
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
-void* countdown_thread(void* arg);
+// void* countdown_thread(void* arg);
 
 /*  
     Deskripsi       : 
@@ -48,7 +49,7 @@ void* countdown_thread(void* arg);
 
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
-void startCountdown();
+void startCountdown(int xPos, int yPos);
 
 /*  
     Deskripsi       : 

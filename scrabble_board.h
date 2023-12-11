@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "tercontrol.h"
 
 extern char _Board[15][15];
 void initBoard();

@@ -27,6 +27,13 @@ void initBoard(){
 */
 void printBoard(){
 	int i, j, k;
+	int termCols, termRows;
+	
+	tc_get_cols_rows(&termCols, &termRows);
+	int colPos = (termCols / 2) - 2;
+	int rowPos = 1;
+
+	tc_set_cursor(colPos, rowPos);
 	
 	k = 0;
 	printf("   ");
@@ -34,36 +41,45 @@ void printBoard(){
 		printf(" %c  ", (char)65+k);
 		k++;
 	}
-	printf("\n");
+	
+	tc_set_cursor(colPos, ++rowPos);
 
 	k = 0;
 	while (k<15){
-		
+		tc_set_cursor(colPos, rowPos);
 		printf("  ");
 		i = 0;
 		while (i<15){
 			printf("+---");
 			i++;
 		}
-		printf("+\n%2d", (1+k));
+		printf("+");
+		printf("\n");
+		tc_set_cursor(colPos, ++rowPos);
 		
+		printf("%2d", (1+k));		
+
 		j = 0;
 		while (j<15){
 			printf("| %c ", _Board[k][j]);
 			j++;
 		}
-		printf("|\n");
-		
+		printf("|");
+
+		rowPos++;
+		printf("\n");
 		k++;
 	}
 	
-		printf("  ");
-		i = 0;
-		while (i<15){
-			printf("+---");
-			i++;
-		}
-		printf("+\n");
+	tc_set_cursor(colPos, rowPos);
+	
+	printf("  ");
+	i = 0;
+	while (i<15){
+		printf("+---");
+		i++;
+	}
+	printf("+");
 }
 
 /*
