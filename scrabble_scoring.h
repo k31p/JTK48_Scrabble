@@ -16,7 +16,7 @@
     F.S             :
         Mereturn nilai akumulatif per huruf dari kata yang dimasukkan
 
-    Dibuat oleh     : Micho Dhani Firmansyah
+    Dibuat oleh     : Micho DF
 */
 int hitungSkorKata(char *kata);
 

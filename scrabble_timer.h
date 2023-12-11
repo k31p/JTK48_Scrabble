@@ -22,7 +22,7 @@ extern int _Max_Time;
 
     F.S             : Timer diatur ke nilai maksimum, dan stop flag diatur ke false.
 
-    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+    Dibuat oleh     : Amr Fadhilah AAB
 */
 void initTimer();
 
@@ -34,7 +34,7 @@ void initTimer();
 
     F.S             : Timer berkurang setiap detik, dan nilai sisa waktu ditampilkan di konsol.
 
-    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+    Dibuat oleh     : Amr Fadhilah AAB
 */
 void* countdown_thread(void* arg);
 
@@ -43,7 +43,7 @@ void* countdown_thread(void* arg);
 
     F.S             : Thread countdown dimulai.
 
-    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+    Dibuat oleh     : Amr Fadhilah AAB
 */
 void startCountdown();
 
@@ -52,7 +52,7 @@ void startCountdown();
 
     F.S             : Stop flag diatur ke true untuk menghentikan thread countdown.
 
-    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+    Dibuat oleh     : Amr Fadhilah AAB
 */
 void endCountdown();
 
@@ -61,7 +61,7 @@ void endCountdown();
 
     F.S             : Nilai _Max_Time diatur sesuai pilihan pengguna.
 
-    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+    Dibuat oleh     : Amr Fadhilah AAB
 */
 void chooseTime();
 

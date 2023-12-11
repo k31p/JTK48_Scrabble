@@ -29,9 +29,6 @@ char _Main_Bag[98] = {'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'
                     'Z', // 1 Z
                     };
 
-/*
-
-*/
 void initPlayerBag(char playerBag[7]){
 	int index, i = 0;
 	while (i < 7){
@@ -43,9 +40,6 @@ void initPlayerBag(char playerBag[7]){
 	}
 }
 
-/*
-
-*/
 void printBag(char bag[7]){
 	int i = 0;
 	printf("Player's Bag: ");
@@ -58,27 +52,18 @@ void printBag(char bag[7]){
 	printf("]\n");
 }
 
-/*
-
-*/
 void setBag(int index){
 	_Main_Bag[index] = _Main_Bag[_Main_Bag_Size-1];
 	_Main_Bag[_Main_Bag_Size-1] = '\0';
 	_Main_Bag_Size--;
 }
 
-/*
-
-*/
 void setPlayerBag(char bag[7], int index, int *bagSize){
 	bag[index] = bag[*bagSize-1];
 	bag[*bagSize-1] = '\0';
 	(*bagSize)--;
 }
 
-/*
-
-*/
 void removePlayerLetter(char *word, char bag[7], char *letterOnBoard){
 	int wordLength = strlen(word);
 	int letterLength = strlen(letterOnBoard);
@@ -103,9 +88,6 @@ void removePlayerLetter(char *word, char bag[7], char *letterOnBoard){
 	}
 }
 
-/*
-
-*/
 void fillPlayerBag(char playerBag[7]){
 	int index, bagSize = 0;
 	while (playerBag[bagSize]!='\0'){
@@ -121,9 +103,6 @@ void fillPlayerBag(char playerBag[7]){
 	}
 }
 
-/*
-
-*/
 void swapLetter(char bag[7]){
 	int N, i, ind;
 	char temp;

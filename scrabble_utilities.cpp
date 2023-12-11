@@ -1,5 +1,4 @@
 // MODUL MEMVALIDASI INPUT DARI PEMAIN
-// Penanggung Jawab: Amr Fadhilah Abiyyu Alif Basysyar (231524002)
 
 #include "scrabble_utilities.h"
 #include <string.h>
@@ -7,11 +6,7 @@
 void removeNewlines(char *string){
     string[strcspn(string, "\n")] = '\0';
 }
- 
- /* Prosedur untuk mengubah seluruh huruf kata menjadi uppercase.  
-	Parameter:
-    - word (char*): kata yang akan diubah menjadi uppercase, parameter input/output.
- */
+
 void toUpperCase(char *word){
 	int wordLength = strlen(word);
 	int i = 0;
@@ -24,13 +19,6 @@ void toUpperCase(char *word){
 	}
 }
 
-
-/* Fungsi untuk memvalidasi apakah kata yang dimasukkan pemain ada dalam kamus bahasa Inggris.
-   Parameter:
-   - word (char*): kata masukkan pemain yang akan divalidasi apakah ada dalam kamus.
-   Return:
-   - boolean: true jika kata valid, false jika kata tidak valid.
-*/
 bool checkDictionary(char *word){
 	char wordInDictionary[30];
 	char filename[40];
@@ -48,30 +36,10 @@ bool checkDictionary(char *word){
 	return false;
 }
 
-
-/* Fungsi untuk memvalidasi apakah posisi yang dimasukkan melewati batas papan.
-   Parameter:
-   - row (int): nomor baris papan yang dipilih oleh pemain.
-   - column (int): nomor kolom papan yang dipilih oleh pemain.
-   Return:
-   - boolean: true jika posisi valid (tidak keluar batas), false jika keluar batas.
-*/
 bool checkBound(int row, int col){
 	return (row >= 0 && row <= 14 && col >= 0 && col <= 14);
 }
 
-
-/* Fungsi untuk memvalidasi apakah sekumpulan kotak/tile masih kosong.
-   Parameter:
-   - wordLength (int): panjang kata yang dimasukkan pemain.
-   - board (array 2D of char): papan permainan berupa array character dua dimensi.
-   - row (int): nomor baris papan yang dipilih oleh pemain.
-   - col (int): nomor kolom papan yang dipilih oleh pemain 
-   - direction (char): arah kata yang akan dipasang di papan (V: Vertikal, H: Horizontal).
-   - depth (int): sebagai penghitung kedalaman rekursi.
-   Return:
-   - boolean: true jika sekumpulan kotak/tile masih kosong, false jika tidak.
-*/
 bool isTilesEmpty(int wordLength, char board[15][15], int row, int col, int direction, int depth){
 	if (depth < wordLength){
 		if (!checkBound(row, col)){
@@ -88,15 +56,6 @@ bool isTilesEmpty(int wordLength, char board[15][15], int row, int col, int dire
 	}
 }
 
-
-/* Fungsi untuk memeriksa apakah kata yang dimasukkan pemain sesuai 
-   dengan ketersediaan huruf dalam tas.
-   Parameter:
-   - bag (array of char): tas berisi huruf yang dimiliki pemain.
-   - word (char*): kata masukan pemain yang akan divalidasi
-   Return:
-   - boolean: true jika valid, false jika tidak. 
-*/
 bool validateWordWithBag(char bag[7], char *word, int row, int col, char direction){
 	char letterInBag[26], letterInWord[26];
 	int wordLength = strlen(word);
@@ -149,17 +108,6 @@ bool validateWordWithBag(char bag[7], char *word, int row, int col, char directi
 	return true;
 }
 
-
-/* Fungsi untuk memvalidasi apakah panjang kata yang dimasukkan ke posisi
-   tersebut valid atau melewati batas papan.
-   Parameter:
-   - word (char *): kata yang dimasukkan pemain.
-   - row (int): nomor baris papan yang dipilih oleh pemain.
-   - col (int): nomor kolom papan yang dipilih oleh pemain.
-   - direction (char): arah kata yang akan dipasang di papan (V: Vertikal, H: Horizontal).
-   Return:
-   - boolean: true jika valid, false jika tidak.
-*/
 bool isPositionValid(char *word, int row, int col, char direction){
 	int wordLength = strlen(word);
 	if (direction == 'H'){
@@ -169,18 +117,6 @@ bool isPositionValid(char *word, int row, int col, char direction){
 	}
 }
 
-
-/* Fungsi untuk memastikan kata masukkan tidak menimpa kata yang sudah ada sebelumnya
-   Parameter:
-   - board (array 2D of char): papan permainan berupa array character dua dimensi.
-   - word (char *): kata masukan pemain.
-   - row (int): nomor baris papan yang dipilih oleh pemain.
-   - col (int): nomor kolom papan yang dipilih oleh pemain 
-   - direction (char): arah kata yang akan dipasang di papan (V: Vertikal, H: Horizontal).
-   Return:
-   - boolean: true jika kata masukan pemain sesuai dengan kata yang sudah ada sebelumnya,
-   			  false jika tidak.
-*/
 bool isOverlappingWordValid(char board[15][15], char *word, int row, int col, int direction){
 	int wordLength = strlen(word);
 	int i = 0;
@@ -202,16 +138,6 @@ bool isOverlappingWordValid(char board[15][15], char *word, int row, int col, in
 	return true;
 }
 
-
-/* Fungsi untuk memeriksa apakah suatu tile/kotak berpotongan dengan kata lain.
-   Parameter:
-   - board (array 2D of char): papan permainan berupa array character dua dimensi.
-   - row (int): nomor baris papan yang dipilih oleh pemain.
-   - col (int): nomor kolom papan yang dipilih oleh pemain 
-   - direction (char): arah kata yang akan dipasang di papan (V: Vertikal, H: Horizontal).
-   Return:
-   - boolean: true jika berpotongan, false jika tidak.
-*/
 bool isIntersect(char board[15][15], int row, int col, char direction){
 	if (direction == 'H'){
 		if (!checkBound(row+1, col)){
@@ -232,19 +158,6 @@ bool isIntersect(char board[15][15], int row, int col, char direction){
 	}
 }
 
-
-/* Fungsi untuk memeriksa apabila posisi kata yang disimpan bersebelahan dengan huruf yang sebelumnya 
-   sudah ada, sehingga huruf yang bersebelahan tersebut membentuk kata baru, lalu kata baru tersebut 
-   diperiksa apakah ada dalam kamus.
-   Parameter:
-   - word (char *): kata yang dimasukkan oleh pemain.
-   - board (array 2D of char): papan permainan berupa array character dua dimensi.
-   - row (int): nomor baris papan yang dipilih oleh pemain.
-   - col (int): nomor kolom papan yang dipilih oleh pemain 
-   - direction (char): arah kata yang akan dipasang di papan (V: Vertikal, H: Horizontal).
-   Return:
-   - boolean: true jika kata yang berpotongan valid, false jika tidak.
-*/
 bool checkIntersectingWord(char *word, char board[15][15], int row, int col, char direction){
 	char *wordOnBoard;
 	int i, j, firstTile;
@@ -312,9 +225,6 @@ bool checkIntersectingWord(char *word, char board[15][15], int row, int col, cha
 	return true;
 }
 
-/*
-
-*/
 bool isValid(char bag[7], char *word, char board[15][15], int row, int col, char direction){
 	bool wordValid = checkDictionary(word);
 	bool tilesNotEmpty = !isTilesEmpty(strlen(word), board, row, col, direction, 0);
@@ -328,9 +238,6 @@ bool isValid(char bag[7], char *word, char board[15][15], int row, int col, char
 		   && overlappingWordValid && intersectingWordValid && wordValidWithBag;
 }
 
-/*
-
-*/
 void invalidMessage(char bag[7], char *word, char board[15][15], int row, int col, char direction){
 	if (!validateWordWithBag(bag, word, row, col, direction)){
 		printf("Huruf yang dimiliki kurang untuk membentuk kata tersebut.\n");
