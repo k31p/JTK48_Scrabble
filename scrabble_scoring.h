@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef SCRABBLE_SCORING_H
 #define SCRABBLE_SCORING_H
 
@@ -8,9 +5,18 @@
 #include <string.h>
 #include <ctype.h>
 
-int hitungSkorKata(char *kata);
-/*
+/*  
+    Deskripsi       : 
+        Fungsi ini berfungsi untuk menghitung skor dari kata yang diinput pemain berdasarkan nilai perhuruf
+        sesuai aturan permainan scrabble
 
+    Parameter       :
+        1. kata : array of char (string) : parameter input
+
+    F.S             :
+        Mereturn nilai akumulatif per huruf dari kata yang dimasukkan
+
+    Dibuat oleh     : Micho Dhani Firmansyah
 */
-
+int hitungSkorKata(char *kata);
 #endif

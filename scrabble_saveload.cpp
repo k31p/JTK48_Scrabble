@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "scrabble_player.h"
-#include "scrabble_board.h"
-#include "scrabble_menu.h"
+#include "scrabble_saveload.h"
 
 // typedef struct {
 //    Player *players;
@@ -64,8 +59,3 @@ void LoadMenu(){
          loadgame(5);
    };
 }
-
-// int main (){
-//    LoadMenu();
-//    return 0; 
-// }

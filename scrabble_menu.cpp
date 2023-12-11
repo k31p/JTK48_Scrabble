@@ -1,5 +1,6 @@
 #include "scrabble_menu.h"
 #include "scrabble_game.h"
+#include <unistd.h>
 
 int _Y_Pos = 1;
 int globalMenuChoice = 1;
