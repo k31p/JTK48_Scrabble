@@ -38,25 +38,25 @@ void createMenus(char menus[5][50], int startPos){
 
 void HowToPlay(){  
     tc_clear_screen();  
-    printf("%s How To Play\n%s",TC_YEL,TC_NRM); 
-    printf("%s1. Pemain menentukan banyak pemain, kemudian set pemain\n%s",TC_YEL,TC_NRM);  
-    printf("%s2. Saat permainan dimulai, pemain pertama harus meletakkan huruf tepat di tengah papan\n%s",TC_YEL,TC_NRM);  
-    printf("%s3. Pemain memasukkan kata, kemudian tentukan koordinat sesuai dengan tempat meletakkannya\n%s",TC_YEL,TC_NRM);  
-    printf("%s4. Pemain akan mendapat skor sesuai dengan kata yang dimasukkan\n%s",TC_YEL,TC_NRM);  
-    printf("%s5. Setelah pemain meletakkan kata atau kehabisan waktu untuk meletakkan kata , maka giliran pemain habis dan beralih ke giliran selanjutnya\n%s",TC_YEL,TC_NRM);
-    printf("%s6. Permainan berlanjut sampai giliran pemain telah mencapai 25 atau huruf yang dimiliki dan yang dikantung player telah habis maka permainan dianggap selesai\n%s",TC_YEL,TC_NRM);
-    printf("%s7. Peringkat pemain akan terlihat mengurut dari tertinggi ke terendah, pemain yang memiliki skor paling tinggi adalah pemenangnya ^-^\n%s",TC_YEL,TC_WHT);
+    printf("How To Play\n"); 
+    printf("1. Pemain menentukan banyak pemain, kemudian set pemain\n");  
+    printf("2. Saat permainan dimulai, pemain pertama harus meletakkan huruf tepat di tengah papan\n");  
+    printf("3. Pemain memasukkan kata, kemudian tentukan koordinat sesuai dengan tempat meletakkannya\n");  
+    printf("4. Pemain akan mendapat skor sesuai dengan kata yang dimasukkan\n");  
+    printf("5. Setelah pemain meletakkan kata atau kehabisan waktu untuk meletakkan kata , maka giliran pemain habis dan beralih ke giliran selanjutnya\n");
+    printf("6. Permainan berlanjut sampai giliran pemain telah mencapai 25 atau huruf yang dimiliki dan yang dikantung player telah habis maka permainan dianggap selesai\n");
+    printf("7. Peringkat pemain akan terlihat mengurut dari tertinggi ke terendah, pemain yang memiliki skor paling tinggi adalah pemenangnya ^-^\n");
 }
 
 void Credit(){
     tc_clear_screen();
-    printf("%s", TC_B_MAG);
+    //printf("%s", TC_B_MAG);
     centerPos("Made by JTK48");
     centerPos("Member's Group");
     centerPos("1. Yobel El'Roy Doloksaribu - 231524029");
     centerPos("2. Amr Fadhilah Abiyyu Alif Basysyar - 231524002");
     centerPos("3. Micho Dhani Firmansyah - 231524013");
-    printf("\033[0m");
+    //printf("\033[0m");
 }
 
 void selectMenu(){

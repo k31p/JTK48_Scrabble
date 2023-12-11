@@ -43,7 +43,7 @@ void printBoard(){
 	}
 	
 	//tc_set_cursor(colPos, ++rowPos);
-
+	printf("\n");
 	k = 0;
 	while (k<15){
 		//tc_set_cursor(colPos, rowPos);

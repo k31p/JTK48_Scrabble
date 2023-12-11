@@ -25,7 +25,6 @@ void saveGame(unsigned int saveNumber){
    // SaveData savedata;
    file = fopen("savedata.dat", "wb");
 
-   initPlayers(4);
    // savedata.players = _Players;
    // savedata.board = _Board;
 

@@ -14,7 +14,7 @@
 #include "scrabble_bag.h"
 
 
-int setDifficulty();
+int chooseComputerDifficulty();
 
 
 void choosePosition(char *enemyWord, int enemyRow, int enemyCol, char enemyDirection, int *row, int *col, char *direction);

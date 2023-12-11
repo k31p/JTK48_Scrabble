@@ -86,6 +86,7 @@ void startGame(){
     char *word = (char*) malloc(sizeof(char) * 20);
     _Current_Player_Turn = 1;
     int round = 1;
+    int difficulty = chooseComputerDifficulty();
     chooseTime();
     tc_clear_screen();
     initBoard();
@@ -101,6 +102,7 @@ void startGame(){
 
         initTimer();
         startCountdown();
+        sleep(1);
         //tc_set_cursor(1, 2);
         printf("\n%s's Turn\n", currentPlayer.namaPlayer);
         printf("Available Letters: \n");
@@ -108,7 +110,7 @@ void startGame(){
         printf("Score: %d\n", currentPlayer.skor);
         if(currentPlayer.is_computer){
             choosePosition(word, row, col, direction, &row, &col, &direction);
-			goThinkComputer(currentPlayer.bag, word, &row, &col, direction, 4);
+			goThinkComputer(currentPlayer.bag, word, &row, &col, direction, difficulty);
 			if (isValid(currentPlayer.bag, word, _Board, row, col, direction)){
 				extractLetter(letterOnBoard, row, col, direction, word);
 				placeTiles(word, row, col, direction);
@@ -153,6 +155,7 @@ void startGame(){
                 case 3:
                     break;
                 case 4:
+                    endCountdown();
                     tc_clear_screen();
                     saveSlot();
                     return;
