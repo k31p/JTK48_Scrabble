@@ -14,56 +14,55 @@ extern bool _Stop_Thread;
 // _Timer: Digunakan untuk menyimpan nilai sisa waktu timer dalam detik.
 extern int _Timer;
 
-/*  
-    Deskripsi       : 
-        Prosedur ini berfungsi untuk menginisialisasi timer dengan nilai awal 60 detik dan menghentikan thread countdown.
+// _Max_Time: Digunakan untuk menentukan lama dari waktu timer.
+extern int _Max_Time;
 
-    F.S             :
-        Timer diinisialisasi dan thread countdown dihentikan.
+/*  
+    Deskripsi       : Inisialisasi timer dengan nilai awal dan stop flag.
+
+    F.S             : Timer diatur ke nilai maksimum, dan stop flag diatur ke false.
 
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
 void initTimer();
 
 /*  
-    Deskripsi       : 
-        Fungsi ini merupakan thread untuk melakukan penghitungan mundur (countdown) timer. 
-        Timer akan dikurangi setiap detik, dan pesan sisa waktu akan ditampilkan di layar.
+    Deskripsi       : Fungsi thread countdown untuk melakukan penghitungan mundur.
 
     Parameter       :
-        arg -> Pointer ke argumen fungsi thread (tidak digunakan).
+        1. arg         -> void* (tidak digunakan dalam implementasi ini)
 
-    F.S             :
-        Jika waktu habis atau fungsi endCountdown dipanggil, thread akan dihentikan.
-
-    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
-*/
-// void* countdown_thread(void* arg);
-
-/*  
-    Deskripsi       : 
-        Prosedur ini berfungsi untuk memulai thread countdown timer.
-
-    F.S             :
-        Thread countdown timer dimulai.
+    F.S             : Timer berkurang setiap detik, dan nilai sisa waktu ditampilkan di konsol.
 
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
-//void startCountdown(int xPos, int yPos);
+void* countdown_thread(void* arg);
 
 /*  
-    Deskripsi       : 
-        Prosedur ini berfungsi untuk menghentikan thread countdown timer.
+    Deskripsi       : Memulai thread countdown.
 
-    F.S             :
-        Thread countdown timer dihentikan.
+    F.S             : Thread countdown dimulai.
+
+    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+*/
+void startCountdown();
+
+/*  
+    Deskripsi       : Menghentikan thread countdown.
+
+    F.S             : Stop flag diatur ke true untuk menghentikan thread countdown.
 
     Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
 */
 void endCountdown();
 
-void* countdown_thread(void* arg);
-void startCountdown();
+/*  
+    Deskripsi       : Meminta pengguna memilih mode waktu countdown.
+
+    F.S             : Nilai _Max_Time diatur sesuai pilihan pengguna.
+
+    Dibuat oleh     : Amr Fadhilah Abiyyu Alif Basysyar
+*/
 void chooseTime();
 
 #endif
