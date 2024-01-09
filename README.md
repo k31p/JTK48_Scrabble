@@ -2,12 +2,12 @@
 
 Sebuah game scrabble yang dibuat oleh tiga orang untuk tugas besar Dasar Dasar Pemrograman di Kampus JTK Polban
 
-## Credits
+## Contributors
 
-- @k31p 
-- @KepoMainGithub
-- @amrfad
+- [@k31p](https://github.com/k31p) 
+- [@KepoMainGithub](https://github.com/KepoMainGithub)
+- [@amrfad](https://github.com/amrfad)
 
 ## External Repo
 
-tercontrol
+- [Tercontrol](https://github.com/ZackeryRSmith/tercontrol)
